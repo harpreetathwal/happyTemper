@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: build
-          path: build
+          path: happy-temper/build
 
   deploy-gcr:
     name: Deploy to GCR
