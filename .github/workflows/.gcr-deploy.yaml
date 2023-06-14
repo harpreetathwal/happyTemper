@@ -33,6 +33,7 @@ jobs:
             nodeModules-
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+        working-directory: ./subdirectory
         env:
           CI: true
 
@@ -41,6 +42,7 @@ jobs:
 
       - name: Archive Production Artifact
         uses: actions/upload-artifact@main
+        working-directory: ./happy-temper
         with:
           name: build
           path: build
