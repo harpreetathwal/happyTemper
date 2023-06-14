@@ -32,19 +32,22 @@ jobs:
           restore-keys: |
             nodeModules-
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
-        working-directory: ./happy-temper
+        run: |
+          cd happy-temper
+          yarn install --frozen-lockfile
         env:
           CI: true
 
       - name: Build Development
-        run: yarn build
+        run: |
+          cd happy-temper
+          yarn build
 
       - name: Archive Production Artifact
         uses: actions/upload-artifact@main
         with:
           name: build
-          path: happy-temper/build
+          path: build
 
   deploy-gcr:
     name: Deploy to GCR
