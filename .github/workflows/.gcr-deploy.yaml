@@ -75,6 +75,8 @@ jobs:
 
       # Build and push image to Google Container Registry
       - name: Build & Push
+        options:
+          logging: CLOUD_LOGGING_ONLY
         run: |-
           gcloud builds submit \
             --quiet \
